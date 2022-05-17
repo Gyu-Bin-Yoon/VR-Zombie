@@ -7,6 +7,7 @@ public class Key : MonoBehaviour
 {
     public string keyType;
     public Text KeyNameText;
+    public int pointValue;
 
     void OnEnable()
     {
@@ -21,6 +22,7 @@ public class Key : MonoBehaviour
         {
             keychain.GrabbedKey(keyType);
             Destroy(gameObject);
+            GameSystem.Instance.TargetDestroyed(pointValue);
         }
     }
 }
