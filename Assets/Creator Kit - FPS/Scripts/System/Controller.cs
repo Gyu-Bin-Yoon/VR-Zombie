@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -25,6 +25,7 @@ public class Controller : MonoBehaviour
     public Transform WeaponPosition;
     
     public Weapon[] startingWeapons;
+
 
     //this is only use at start, allow to grant ammo in the inspector. m_AmmoInventory is used during gameplay
     public AmmoInventoryEntry[] startingAmmo;
@@ -103,7 +104,7 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        if (CanPause && Input.GetButtonDown("Menu"))
+        if (CanPause && Input.GetButtonDown("Menu") /*oculus·Î ¿¬°á - OVRInput.GetDown(OVRInput.Button.One)*/)
         {
             PauseMenu.Instance.Display();
         }
@@ -139,7 +140,7 @@ public class Controller : MonoBehaviour
         if (!m_IsPaused && !LockControl)
         {
             // Jump (we do it first as 
-            if (m_Grounded && Input.GetButtonDown("Jump"))
+            if (m_Grounded && Input.GetButtonDown("Jump")/* ¿ÀÅ§·¯½º·Î ¿¬°á - OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)*/)
             {
                 m_VerticalSpeed = JumpSpeed;
                 m_Grounded = false;
@@ -155,8 +156,25 @@ public class Controller : MonoBehaviour
                 m_SpeedAtJump = actualSpeed;
             }
 
+            
             // Move around with WASD
             move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            if (move.sqrMagnitude > 1.0f)
+                move.Normalize();
+
+            float usedSpeed = m_Grounded ? actualSpeed : m_SpeedAtJump;
+
+            move = move * usedSpeed * Time.deltaTime;
+
+            move = transform.TransformDirection(move);
+            m_CharacterController.Move(move);
+            
+
+
+            /*
+            //oculus player moving
+            Vector2 thumbstick = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
+            move = new Vector3(thumbstick.x, 0, thumbstick.y);
             if (move.sqrMagnitude > 1.0f)
                 move.Normalize();
 
@@ -166,7 +184,8 @@ public class Controller : MonoBehaviour
             
             move = transform.TransformDirection(move);
             m_CharacterController.Move(move);
-            
+            */
+
             // Turn player
             float turnPlayer =  Input.GetAxis("Mouse X") * MouseSensitivity;
             m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
