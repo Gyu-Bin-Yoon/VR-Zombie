@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21572170bf3eef94dba3f7ca0f06525a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
   pointValue: 5
   DestroyedEffect: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
     type: 3}
@@ -1218,7 +1218,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -1838,7 +1838,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -2271,7 +2271,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -2799,7 +2799,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -8724,7 +8724,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -9527,7 +9527,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -9631,7 +9631,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -12426,7 +12426,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
@@ -19158,7 +19158,7 @@ PrefabInstance:
     - target: {fileID: 6689046111327374948, guid: b5efbb971dfd08c458d6074096aacb15,
         type: 3}
       propertyPath: pointValue
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efbb971dfd08c458d6074096aacb15, type: 3}
