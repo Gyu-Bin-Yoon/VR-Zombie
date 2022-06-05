@@ -182,6 +182,10 @@ public class GameSystem : MonoBehaviour
             GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }
 
+        if(m_Score<0){
+            PauseMenu.Instance.ExitGame();
+        }
+        
         Transform playerTransform = Controller.Instance.transform;
         
         
