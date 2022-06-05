@@ -104,7 +104,7 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        if (CanPause && Input.GetButtonDown("Menu") /*oculus·Î ¿¬°á - OVRInput.GetDown(OVRInput.Button.One)*/)
+        if (CanPause && Input.GetButtonDown("Menu") /*oculusï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - OVRInput.GetDown(OVRInput.Button.One)*/)
         {
             PauseMenu.Instance.Display();
         }
@@ -140,7 +140,7 @@ public class Controller : MonoBehaviour
         if (!m_IsPaused && !LockControl)
         {
             // Jump (we do it first as 
-            if (m_Grounded && Input.GetButtonDown("Jump")/* ¿ÀÅ§·¯½º·Î ¿¬°á - OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)*/)
+            if (m_Grounded && Input.GetButtonDown("Jump")/* ï¿½ï¿½Å§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)*/)
             {
                 m_VerticalSpeed = JumpSpeed;
                 m_Grounded = false;
@@ -197,6 +197,20 @@ public class Controller : MonoBehaviour
             currentAngles.y = m_HorizontalAngle;
             transform.localEulerAngles = currentAngles;
 
+            /*
+            //oculus turn player
+            Vector2 thumbstick2 = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+            float turnPlayer =  thumbstick2.x * MouseSensitivity;
+            m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
+
+            if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
+            if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
+            
+            Vector3 currentAngles = transform.localEulerAngles;
+            currentAngles.y = m_HorizontalAngle;
+            transform.localEulerAngles = currentAngles;
+            */
+
             // Camera look up/down
             var turnCam = -Input.GetAxis("Mouse Y");
             turnCam = turnCam * MouseSensitivity;
@@ -208,6 +222,20 @@ public class Controller : MonoBehaviour
             m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
 
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
+
+            /*
+            oculus camera look up/down
+            var turnCam = -thumbstick2.y;
+            turnCam = turnCam * MouseSensitivity;
+            m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
+            currentAngles = CameraPosition.transform.localEulerAngles;
+            currentAngles.x = m_VerticalAngle;
+            CameraPosition.transform.localEulerAngles = currentAngles;
+  
+            m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
+
+            Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
+            */
 
             if (Input.GetButton("Reload"))
                 m_Weapons[m_CurrentWeapon].Reload();
